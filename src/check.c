@@ -6,7 +6,7 @@
 /*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 19:31:15 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/11 19:45:32 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/18 17:04:41 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	**check_argv(int argc, char **argv)
 	}
 	sign_check(argc, argv);
 	if (argc == 2)
-		argv = ft_split(argv[1], ' ');
+		argv = split(argv[1], ' ');
 	return (argv);
 }
 
@@ -60,4 +60,32 @@ void	sign_check(int argc, char **argv)
 			}
 		}
 	}
+}
+
+void	check_overflow(char **argv)
+{
+	int			i;
+	
+	i = 0;
+	while (argv[++i])
+	{
+		if (ft_atoi(argv[i]) < -2147483648 || ft_atoi(argv[i]) > 2147483647)
+		{
+			ft_printf("Error\n");
+			free_argv(argv);
+			exit (-1);
+		}
+	}
+}
+
+void	free_argv(char **argv)
+{
+	int	size;
+	
+	size = 1;
+	while (argv[size] != NULL)
+		size++;
+	while(--size >= 0)
+		free(argv[size]);
+	free(argv);
 }

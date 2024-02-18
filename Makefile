@@ -6,7 +6,7 @@
 #    By: phwang <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 13:47:56 by phwang            #+#    #+#              #
-#    Updated: 2024/02/11 19:50:24 by phwang           ###   ########.fr        #
+#    Updated: 2024/02/18 16:16:36 by phwang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ LIBFT = -L./LIBFT -lft
 
 SRC = \
 	build_pile.c \
+	split_for_pushswap.c \
 	check.c \
 	main.c
 
