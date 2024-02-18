@@ -6,7 +6,7 @@
 /*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 19:31:15 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/18 17:04:41 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/18 18:39:25 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,4 @@ void	check_overflow(char **argv)
 			exit (-1);
 		}
 	}
-}
-
-void	free_argv(char **argv)
-{
-	int	size;
-	
-	size = 1;
-	while (argv[size] != NULL)
-		size++;
-	while(--size >= 0)
-		free(argv[size]);
-	free(argv);
 }

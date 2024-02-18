@@ -6,7 +6,7 @@
 /*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 19:49:54 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/18 16:02:14 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/18 18:36:42 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,28 +21,49 @@ t_pile	*create_node(int num)
 	new = malloc(sizeof (t_pile));
 	if(!new)
 		return (0);
-	new->number = (int *) malloc(sizeof(int));
-	if (!(new->number))
-		return (0);
-	new->number = &num;
+	new->number = num;
+	new->next = NULL;
+	new->prev = NULL;
 	return (new);
 }
 
+void	pile_addback(t_pile **head, t_pile *new)
+{
+	t_pile *temp;
+	
+	if (!(*head))
+		(*head) = new;
+	else
+	{
+		temp = *head;
+		while (temp->next != NULL)
+			temp = temp->next;
+		temp->next = new;
+		new->prev = temp;
+	}
+}
 
-// 1 construire la pile :
-// creer un element
-// 	mettre le int dedans, si overflow = exit error 
-// 	next = null previous = null
-// positioner lelement :
-// 	si !list : alors *head = lelement
-// 	il y a 1 element : on recreer un element
-// 	on va a la fin de la liste
-// 	on actuel->next=new 
-// 	on oublie pas position actuel et on va sur new 
-// 	on new -> prev = actuel 
-// 	on new -> next = null 
-// si cest le dernier element a ajouter alors il faudra dire que 
-// 	new -> next = head 
-// 	head -> prev = new
+void	build_pile(t_pile **head, char **argv)
+{
+	int	size;
+	int	i;
+
+	i = 0;
+	size = argv_count(argv, 0);
+	while (++i <= size)
+		pile_addback(&(*head), create_node(ft_atoi(argv[i])));
+	make_it_circle(&(*head));
+	if (argv[0] == NULL)
+		free_argv(argv);
+}
+
+void	make_it_circle(t_pile **head)
+{
+	t_pile *temp;
 	
-	
+	temp = *head;
+	while(temp->next != NULL)
+		temp = temp->next;
+	temp->next = *head;
+	(*head)->prev = temp;
+}

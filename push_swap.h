@@ -6,7 +6,7 @@
 /*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:50:28 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/18 17:05:28 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/18 18:36:56 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 typedef struct l_pile
 {
-	int				*number;
+	int				number;
 	struct l_pile	*next;
 	struct l_pile	*prev;
 }	t_pile;
@@ -31,4 +31,10 @@ char	**split(char const *s, char c);
 void	check_overflow(char **argv);
 void	free_argv(char **argv);
 
+int		argv_count(char **argv, int choice);
+
+void	build_pile(t_pile **head, char **argv);
+t_pile	*create_node(int num);
+void	pile_addback(t_pile **head, t_pile *new);
+void	make_it_circle(t_pile **head);
 #endif
