@@ -6,7 +6,7 @@
 /*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 19:31:15 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/18 18:39:25 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/18 19:52:45 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../LIBFT/libft.h"
 #include "../LIBFT/ft_printf/ft_printf.h"
 
-char	**check_argv(int argc, char **argv)
+char	**argv_check(int argc, char **argv)
 {
 	int	i;
 	int	j;
@@ -27,7 +27,7 @@ char	**check_argv(int argc, char **argv)
 		j = -1;
 		while (argv[i][++j])
 		{
-			if (!(argv[i][j] >= '0' && argv[i][j] <= '9') 
+			if (!(argv[i][j] >= '0' && argv[i][j] <= '9')
 			&& argv[i][j] != ' ' && argv[i][j] != '-')
 			{
 				ft_printf("Error\n");
@@ -38,6 +38,7 @@ char	**check_argv(int argc, char **argv)
 	sign_check(argc, argv);
 	if (argc == 2)
 		argv = split(argv[1], ' ');
+	overflow_check(argv);
 	return (argv);
 }
 
@@ -52,7 +53,7 @@ void	sign_check(int argc, char **argv)
 		j = -1;
 		while (argv[i][++j])
 		{
-			if ((argv[i][j] == '-' && argv[i][j + 1] == '-') 
+			if ((argv[i][j] == '-' && argv[i][j + 1] == '-')
 			|| (argv[i][j] != ' ' && argv[i][j + 1] == '-'))
 			{
 				ft_printf("Error\n");
@@ -62,10 +63,10 @@ void	sign_check(int argc, char **argv)
 	}
 }
 
-void	check_overflow(char **argv)
+void	overflow_check(char **argv)
 {
-	int			i;
-	
+	int	i;
+
 	i = 0;
 	while (argv[++i])
 	{
@@ -74,6 +75,30 @@ void	check_overflow(char **argv)
 			ft_printf("Error\n");
 			free_argv(argv);
 			exit (-1);
+		}
+	}
+	twin_check(argv);
+}
+
+void	twin_check(char **argv)
+{
+	int	num;
+	int	i;
+	int	pos;
+
+	pos = 0;
+	while (++pos <= argv_count(argv, 0))
+	{
+		i = 0;
+		num = ft_atoi(argv[pos]);
+		while (++i <= argv_count(argv, 0))
+		{
+			if (num == ft_atoi(argv[i]) && i != pos)
+			{
+				ft_printf("Error\n");
+				free_argv(argv);
+				exit(-1);
+			}
 		}
 	}
 }

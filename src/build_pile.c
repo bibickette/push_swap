@@ -6,7 +6,7 @@
 /*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 19:49:54 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/18 18:36:42 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/18 19:50:11 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 
 t_pile	*create_node(int num)
 {
-	t_pile *new;
-	
+	t_pile	*new;
+
 	new = malloc(sizeof (t_pile));
-	if(!new)
+	if (!new)
 		return (0);
 	new->number = num;
 	new->next = NULL;
@@ -29,8 +29,8 @@ t_pile	*create_node(int num)
 
 void	pile_addback(t_pile **head, t_pile *new)
 {
-	t_pile *temp;
-	
+	t_pile	*temp;
+
 	if (!(*head))
 		(*head) = new;
 	else
@@ -53,16 +53,15 @@ void	build_pile(t_pile **head, char **argv)
 	while (++i <= size)
 		pile_addback(&(*head), create_node(ft_atoi(argv[i])));
 	make_it_circle(&(*head));
-	if (argv[0] == NULL)
-		free_argv(argv);
+	free_argv(argv);
 }
 
 void	make_it_circle(t_pile **head)
 {
-	t_pile *temp;
-	
+	t_pile	*temp;
+
 	temp = *head;
-	while(temp->next != NULL)
+	while (temp->next != NULL)
 		temp = temp->next;
 	temp->next = *head;
 	(*head)->prev = temp;

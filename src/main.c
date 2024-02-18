@@ -6,7 +6,7 @@
 /*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:49:48 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/18 18:35:34 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/18 19:53:44 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int	main(int argc, char **argv)
 {
 	t_pile	*a = NULL;
 
-	argv = check_argv(argc, argv);
-	check_overflow(argv);
+	argv = argv_check(argc, argv);
 	build_pile(&a, argv);
 	print_pile(a, 0);
 	print_pile(a, 1);
+	free_pile(a, a);
 }
