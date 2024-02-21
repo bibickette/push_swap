@@ -6,7 +6,7 @@
 /*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 17:36:42 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/18 19:49:25 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/21 17:45:59 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	argv_count(char **argv, int choice)
 	}
 	return (-1);
 }
-
+/*alors la jai pas compris car si je rentre un chiffre, ça renvoie 0, mais un nombre renvoie 1*/
 void	free_argv(char **argv)
 {
 	int	size;
@@ -54,3 +54,20 @@ void	free_pile(t_pile *head, t_pile *current)
 			free_pile(head, temp);
 	}
 }
+
+int	pile_count(t_pile *head)
+{
+	t_pile *temp;
+	int		size;
+
+	if (!head)
+		return (0);
+	size = 1;
+	temp = head;
+	while (temp->next != head && temp->next != NULL)
+	{
+		size++;
+		temp = temp->next;
+	}
+	return (size);
+}	
