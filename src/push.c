@@ -6,7 +6,7 @@
 /*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:35:37 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/21 18:18:01 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/21 18:45:25 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 void	push(t_pile **this, t_pile **onthis, int choice)
 {
 	if (!(*this))
-		return;
+		return ;
 	pile_addfront(onthis, extract_head(this));
 	if (choice == 0)
 		ft_printf("pb\n");
@@ -27,12 +27,12 @@ void	push(t_pile **this, t_pile **onthis, int choice)
 
 void	pile_addfront(t_pile **head, t_pile *element)
 {
-	t_pile *last;
-	t_pile *cur_first;
-	
+	t_pile	*last;
+	t_pile	*cur_first;
+
 	if (!(*head))
 		(*head) = element;
-	else 
+	else
 	{
 		if (pile_count(*head) == 1)
 		{
@@ -57,7 +57,7 @@ t_pile	*extract_head(t_pile **head)
 	t_pile	*extracted;
 	t_pile	*last;
 	t_pile	*second;
-	
+
 	extracted = (*head);
 	last = (*head)->prev;
 	second = (*head)->next;

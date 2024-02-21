@@ -6,7 +6,7 @@
 /*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:30:18 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/21 18:33:22 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/21 18:47:10 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 void	reverse(t_pile **head, int choice)
 {
 	if (pile_count(*head) <= 1)
-		return;
+		return ;
 	(*head) = (*head)->prev;
 	if (choice == 0)
 		ft_printf("rra\n");
