@@ -6,7 +6,7 @@
 #    By: phwang <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 13:47:56 by phwang            #+#    #+#              #
-#    Updated: 2024/02/21 17:54:34 by phwang           ###   ########.fr        #
+#    Updated: 2024/02/22 00:06:18 by phwang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC_DIR = src
 LIBFT = -L./LIBFT -lft
 
 SRC = \
+	tiny_sort.c \
 	swap.c \
 	push.c \
 	reverse.c \

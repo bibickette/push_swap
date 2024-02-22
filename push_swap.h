@@ -6,7 +6,7 @@
 /*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:50:28 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/21 18:25:21 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/22 00:31:07 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,10 @@ void	push(t_pile **this, t_pile **onthis, int choice);
 
 void	swap(t_pile **head, int choice);
 void	swaswap(t_pile **a, t_pile **b);
-void print_swap(int choice);
+void	print_swap(int choice);
+
+void	tiny_sort(t_pile **head);
+int		find_top_num(t_pile *head);
+int		find_low_num(t_pile *head);
 
 #endif
