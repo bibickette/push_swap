@@ -6,7 +6,7 @@
 /*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:49:48 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/21 18:41:15 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/22 18:38:21 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 void print_pile(t_pile *head, int choice)
 {
 	t_pile *temp;
-	
+
 	if (choice == 0)
 	{
 		temp = head;
@@ -46,22 +46,23 @@ void print_pile(t_pile *head, int choice)
 int	main(int argc, char **argv)
 {
 	t_pile	*a = NULL;
-	t_pile	*b = NULL;
+	// t_pile	*b = NULL;
 
 	argv = argv_check(argc, argv);
 	build_pile(&a, argv);
+	tiny_sort(&a);
 	print_pile(a, 0);
-	push(&a, &b, 0);
-	push(&a, &b, 0);
-	push(&a, &b, 0);
-	rereverse(&a, &b);
-	print_pile(a, 0);
-	print_pile(b, 0);
-	swaswap(&a, &b);
-	print_pile(a, 0);
-	print_pile(b, 0);
-	free_pile(a, a);
-	free_pile(b, b);
+	// push(&a, &b, 0);
+	// push(&a, &b, 0);
+	// push(&a, &b, 0);
+	// rereverse(&a, &b);
+	// print_pile(a, 0);
+	// print_pile(b, 0);
+	// swaswap(&a, &b);
+	// print_pile(a, 0);
+	// print_pile(b, 0);
+	// free_pile(a, a);
+	// free_pile(b, b);
 }
 
 /* si on rentre seulement 1 nombre , ca fait rien*/
