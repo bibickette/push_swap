@@ -6,7 +6,7 @@
 /*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:50:28 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/22 00:31:07 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/26 23:53:26 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 typedef struct l_pile
 {
 	int				number;
+	int				cost_to_top;
+	int				target_nb;
 	struct l_pile	*next;
 	struct l_pile	*prev;
 }	t_pile;
@@ -47,16 +49,24 @@ void	rorotate(t_pile **a, t_pile **b);
 void	reverse(t_pile **head, int choice);
 void	rereverse(t_pile **a, t_pile **b);
 
+void	push(t_pile **this, t_pile **onthis, int choice);
 void	pile_addfront(t_pile **head, t_pile *element);
 t_pile	*extract_head(t_pile **head);
-void	push(t_pile **this, t_pile **onthis, int choice);
 
 void	swap(t_pile **head, int choice);
 void	swaswap(t_pile **a, t_pile **b);
-void	print_swap(int choice);
 
 void	tiny_sort(t_pile **head);
-int		find_top_num(t_pile *head);
-int		find_low_num(t_pile *head);
+int		highest_nb(t_pile *head);
+int		smallest_nb(t_pile *head);
+
+void	hell_sort(t_pile **a, t_pile **b);
+
+void	set_pile(t_pile **a, t_pile **b);
+void	set_target(t_pile **b, t_pile **a_targeted);
+void	set_cost_top(t_pile **head);
+
+
+int		smallest_next(t_pile *head, int base);
 
 #endif

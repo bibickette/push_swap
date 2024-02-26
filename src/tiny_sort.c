@@ -6,7 +6,7 @@
 /*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:52:18 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/26 14:17:42 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/26 21:13:07 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,12 @@
 
 void	tiny_sort(t_pile **head)
 {
-	if ((*head)->number == smallest_nb(*head)
-		&& ((*head)->next)->number == highest_nb(*head))
-	{
-		swap(head, 0);
+	if ((*head)->number == highest_nb(*head))
 		rotate(head, 0);
-	}
-	else if (((*head)->number != smallest_nb(*head))
-		&& ((*head)->number != highest_nb(*head)))
-	{
-		if (((*head)->next)->number == highest_nb(*head))
-			reverse(head, 0);
-		else if (((*head)->next)->number == smallest_nb(*head))
-			swap(head, 0);
-	}
-	else if ((*head)->number == highest_nb(*head))
-	{
-		if (((*head)->next)->number == smallest_nb(*head))
-			rotate(head, 0);
-		else
-		{
-			swap(head, 0);
-			reverse(head, 0);
-		}
-	}
+	else if ((*head)->next->number == highest_nb(*head))
+		reverse(head, 0);
+	if ((*head)->number > (*head)->next->number)
+		swap(head, 0);
 }
 
 int	highest_nb(t_pile *head)
@@ -53,7 +35,8 @@ int	highest_nb(t_pile *head)
 		return (temp->number);
 	if (temp->number > top_num)
 		top_num = temp->number;
-	temp = temp->next;
+	if (temp->next != NULL)
+		temp = temp->next;
 	while (temp != head)
 	{
 		if (temp->number > top_num)
@@ -74,7 +57,8 @@ int	smallest_nb(t_pile *head)
 		return (temp->number);
 	if (temp->number < low_num)
 		low_num = temp->number;
-	temp = temp->next;
+	if (temp->next != NULL)
+		temp = temp->next;
 	while (temp != head)
 	{
 		if (temp->number < low_num)

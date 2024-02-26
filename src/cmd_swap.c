@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 17:34:28 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/21 18:45:36 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/26 14:20:33 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ void	swap(t_pile **head, int choice)
 	temp = tempo->number;
 	tempo->number = (*head)->number;
 	(*head)->number = temp;
-	print_swap(choice);
+	if (choice == 0)
+		ft_printf("sa\n");
+	else if (choice == 1)
+		ft_printf("sb\n");
 }
 
 void	swaswap(t_pile **a, t_pile **b)
@@ -33,12 +36,4 @@ void	swaswap(t_pile **a, t_pile **b)
 	swap(a, 2);
 	swap(b, 2);
 	ft_printf("ss\n");
-}
-
-void	print_swap(int choice)
-{
-	if (choice == 0)
-		ft_printf("sa\n");
-	else if (choice == 1)
-		ft_printf("sb\n");
 }

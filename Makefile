@@ -6,7 +6,7 @@
 #    By: phwang <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 13:47:56 by phwang            #+#    #+#              #
-#    Updated: 2024/02/22 00:06:18 by phwang           ###   ########.fr        #
+#    Updated: 2024/02/26 21:37:52 by phwang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,15 @@ SRC_DIR = src
 LIBFT = -L./LIBFT -lft
 
 SRC = \
+	cmd_swap.c \
+	cmd_push.c \
+	cmd_reverse.c \
+	cmd_rotate.c \
+	ft_set.c \
+	ft_free.c \
+	ft_count \
+	hell_sort.c \
 	tiny_sort.c \
-	swap.c \
-	push.c \
-	reverse.c \
-	rotate.c \
-	count \
 	build_pile.c \
 	split_for_pushswap.c \
 	check.c \
@@ -47,12 +50,15 @@ $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 	
 $(NAME) : $(OBJ_DIR) $(OBJ)
+	make -s -C LIBFT
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT)
 
 clean :
+	make -s -C LIBFT clean
 	rm -rf $(OBJ_DIR)
 
 fclean : clean
+	make -s -C LIBFT fclean
 	rm -f $(NAME)
 
 re : fclean all
