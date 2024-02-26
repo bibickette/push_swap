@@ -6,7 +6,7 @@
 /*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:52:18 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/22 18:39:37 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/26 14:17:42 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@
 
 void	tiny_sort(t_pile **head)
 {
-	if ((*head)->number == find_low_num(*head)
-		&& ((*head)->next)->number == find_top_num(*head))
+	if ((*head)->number == smallest_nb(*head)
+		&& ((*head)->next)->number == highest_nb(*head))
 	{
 		swap(head, 0);
 		rotate(head, 0);
 	}
-	else if (((*head)->number != find_low_num(*head))
-		&& ((*head)->number != find_top_num(*head)))
+	else if (((*head)->number != smallest_nb(*head))
+		&& ((*head)->number != highest_nb(*head)))
 	{
-		if (((*head)->next)->number == find_top_num(*head))
+		if (((*head)->next)->number == highest_nb(*head))
 			reverse(head, 0);
-		else if (((*head)->next)->number == find_low_num(*head))
+		else if (((*head)->next)->number == smallest_nb(*head))
 			swap(head, 0);
 	}
-	else if ((*head)->number == find_top_num(*head))
+	else if ((*head)->number == highest_nb(*head))
 	{
-		if (((*head)->next)->number == find_low_num(*head))
+		if (((*head)->next)->number == smallest_nb(*head))
 			rotate(head, 0);
 		else
 		{
@@ -42,7 +42,7 @@ void	tiny_sort(t_pile **head)
 	}
 }
 
-int	find_top_num(t_pile *head)
+int	highest_nb(t_pile *head)
 {
 	t_pile	*temp;
 	int		top_num;
@@ -63,7 +63,7 @@ int	find_top_num(t_pile *head)
 	return (top_num);
 }
 
-int	find_low_num(t_pile *head)
+int	smallest_nb(t_pile *head)
 {
 	t_pile	*temp;
 	int		low_num;
