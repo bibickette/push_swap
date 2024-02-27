@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_find.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
+/*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 14:03:22 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/27 16:45:23 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/27 21:38:36 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ int	smallest_next(t_pile *head, int base)
 	{
 		if (highest_nb(head) < base)
 			return (smallest_nb(head));
-		else if (((temp->number > base) && (temp->number - base) < (small_potent - base)) || small_potent < base)
+		else if (((temp->number > base)
+				&& (temp->number - base) < (small_potent - base))
+			|| small_potent < base)
 			small_potent = temp->number;
 		temp = temp->next;
 	}
@@ -77,24 +79,19 @@ int	smallest_nb(t_pile *head)
 	return (low_num);
 }
 
-int		greatest_price(t_pile *a, t_pile *b)
+int	find_cheapest(t_pile *head)
 {
-		if (b->position > (pile_count(b) / 2 + pile_count(b) % 2) &&
-			a->position > (pile_count(a) / 2 + pile_count(a) % 2)) 
-		{
-			if (b->cost_to_top > a->cost_to_top)
-				return (b->cost_to_top);
-			else
-				return (a->cost_to_top);
-		}
-		else if (b->position <= (pile_count(b) / 2 + pile_count(b) % 2) &&
-			a->position <= (pile_count(a) / 2 + pile_count(a) % 2))
-		{
-			if (b->cost_to_top > a->cost_to_top)
-				return (b->cost_to_top);
-			else
-				return (a->cost_to_top);
-		}
-		else
-			return (b->cost_to_top + a->cost_to_top);
+	int		cheapest;
+	t_pile	*temp;
+
+	cheapest = head->price;
+	temp = head;
+	temp = temp->next;
+	while (temp != head)
+	{
+		if (temp->price < cheapest)
+			cheapest = temp->price;
+		temp = temp->next;
+	}
+	return (cheapest);
 }

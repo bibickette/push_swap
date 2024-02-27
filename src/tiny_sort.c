@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tiny_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
+/*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:52:18 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/27 14:04:05 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/27 21:21:23 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,3 @@ void	tiny_sort(t_pile **head)
 	if ((*head)->number > (*head)->next->number)
 		swap(head, 0);
 }
-

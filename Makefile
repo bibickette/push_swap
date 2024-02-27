@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: phwang <phwang@student.42.fr>              +#+  +:+       +#+         #
+#    By: phwang <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 13:47:56 by phwang            #+#    #+#              #
-#    Updated: 2024/02/27 14:04:34 by phwang           ###   ########.fr        #
+#    Updated: 2024/02/27 23:02:12 by phwang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,14 +24,17 @@ SRC = \
 	cmd_rotate.c \
 	ft_find.c \
 	ft_set.c \
+	ft_set_utils.c \
 	ft_free.c \
 	ft_count \
+	more_hell.c \
 	hell_sort.c \
 	tiny_sort.c \
 	build_pile.c \
 	split_for_pushswap.c \
 	check.c \
-	main.c
+	main.c \
+	print.c
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(addsuffix .o, $(notdir $(basename $(SRC)))))
 
@@ -39,27 +42,49 @@ OBJ = $(addprefix $(OBJ_DIR)/, $(addsuffix .o, $(notdir $(basename $(SRC)))))
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
+#PROGRESS BAR
+TOTAL_SRCS := $(words $(SRC))
+COMPILED_SRCS := 0
+#COLOR SET
+COLOR_RESET = \e[0m
+COLOR_GREEN = \e[0;35m
+COLOR_BLUE = \e[0;35m
 
 .PHONY: all clean fclean re
 
 all : $(NAME)
 
 $(OBJ_DIR):
-	mkdir $(OBJ_DIR)
+	@mkdir $(OBJ_DIR)
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) -o $@ -c $<
+	@$(CC) $(CFLAGS) -o $@ -c $<
+	
+	@$(eval COMPILED_SRCS=$(shell echo $$(($(COMPILED_SRCS)+1))))
+	@echo -n "$(COLOR_BLUE)Compiling Objects Push_Swap: $(COLOR_RESET)[$(COLOR_GREEN)"
+	@for i in $(shell seq 1 25); do \
+		if [ $$i -le $$(($(COMPILED_SRCS)*25/$(TOTAL_SRCS))) ]; then \
+			echo -n "⭓"; \
+		else \
+			echo -n "."; \
+		fi; \
+	done
+	@echo -n "$(COLOR_RESET)] $(COMPILED_SRCS)/$(TOTAL_SRCS)\r"
 	
 $(NAME) : $(OBJ_DIR) $(OBJ)
-	make -s -C LIBFT
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT)
+	@echo "$(COLOR_BLUE)\nCompiling Push_Swap...$(COLOR_RESET)"
+	@make -s -C LIBFT
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT)
+	@echo "$(COLOR_GREEN)Compilation complete !$(COLOR_RESET)        "
 
 clean :
-	make -s -C LIBFT clean
-	rm -rf $(OBJ_DIR)
+	@make -s -C LIBFT clean
+	@rm -rf $(OBJ_DIR)
 
 fclean : clean
-	make -s -C LIBFT fclean
-	rm -f $(NAME)
+	@echo "$(COLOR_BLUE)✘✘✘ Deleting Push_Swap... ✘✘✘$(COLOR_RESET)"
+	@make -s -C LIBFT fclean
+	@rm -f $(NAME)
+	@echo "$(COLOR_GREEN)✘✘✘ Push_Swap fcleaned ! ✘✘✘$(COLOR_RESET)        "
 
 re : fclean all

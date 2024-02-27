@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmd_rotate.c                                       :+:      :+:    :+:   */
+/*   ft_set_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 16:23:25 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/27 21:12:18 by phwang           ###   ########.fr       */
+/*   Created: 2024/02/27 18:30:48 by phwang            #+#    #+#             */
+/*   Updated: 2024/02/27 22:23:48 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,29 @@
 #include "../LIBFT/libft.h"
 #include "../LIBFT/ft_printf/ft_printf.h"
 
-void	rotate(t_pile **head, int choice)
+void	set_medium(t_pile *head)
 {
-	if (pile_count(*head) <= 1)
-		return ;
-	(*head) = (*head)->next;
-	if (choice == 0)
-		ft_printf("ra\n");
-	else if (choice == 1)
-		ft_printf("rb\n");
+	int	i;
+
+	i = -1;
+	while (++i < pile_count(head))
+	{
+		if (head->position <= (pile_count(head) / 2 + pile_count(head) % 2))
+			head->medium = 1;
+		else if (head->position > (pile_count(head) / 2 + pile_count(head) % 2))
+			head->medium = 2;
+		head = head->next;
+	}
 }
 
-void	rorotate(t_pile **a, t_pile **b)
+void	set_position(t_pile *head)
 {
-	rotate(a, 2);
-	rotate(b, 2);
-	ft_printf("rr\n");
+	int	pos;
+
+	pos = 0;
+	while (++pos <= pile_count(head))
+	{
+		head->position = pos;
+		head = head->next;
+	}
 }
