@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split_for_pushswap.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 14:22:20 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/18 16:18:08 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/27 13:07:55 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ char	**split(char const *s, char c)
 		ntab[0] = NULL;
 		return (ntab);
 	}
-	ntab[0] = '\0';
+	ntab[0] = NULL;
 	ntab = fill_tab(ntab, pos, s, c);
-	ntab[size] = '\0';
+	ntab[size] = 0;
 	return (ntab);
 }

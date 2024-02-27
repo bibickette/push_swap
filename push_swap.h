@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:50:28 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/26 23:53:26 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/27 16:34:49 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ typedef struct l_pile
 	int				number;
 	int				cost_to_top;
 	int				target_nb;
+	int				position;
+	int				price;
 	struct l_pile	*next;
 	struct l_pile	*prev;
 }	t_pile;
@@ -65,8 +67,10 @@ void	hell_sort(t_pile **a, t_pile **b);
 void	set_pile(t_pile **a, t_pile **b);
 void	set_target(t_pile **b, t_pile **a_targeted);
 void	set_cost_top(t_pile **head);
-
+void	set_position(t_pile *head);
+void	set_price(t_pile *b, t_pile *a);
 
 int		smallest_next(t_pile *head, int base);
+int		greatest_price(t_pile *a, t_pile *b);
 
 #endif

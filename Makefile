@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: phwang <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: phwang <phwang@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 13:47:56 by phwang            #+#    #+#              #
-#    Updated: 2024/02/26 21:37:52 by phwang           ###   ########.fr        #
+#    Updated: 2024/02/27 14:04:34 by phwang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRC = \
 	cmd_push.c \
 	cmd_reverse.c \
 	cmd_rotate.c \
+	ft_find.c \
 	ft_set.c \
 	ft_free.c \
 	ft_count \

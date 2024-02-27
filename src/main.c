@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:49:48 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/26 23:56:00 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/27 16:23:14 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,24 @@
 void print_pile(t_pile *head, int choice)
 {
 	t_pile *temp;
-
+	int i = 2;
 	if (choice == 0)
 	{
 		temp = head;
-		ft_printf("first list next: %d\n", temp->number);
-		ft_printf("first list next target: %d\n", temp->target_nb);
-		ft_printf("first list next cost: %d\n", temp->cost_to_top);
+		ft_printf("first list next:	 %d\n", temp->number);
+		ft_printf("first target: %d\n", temp->target_nb);
+		ft_printf("first price: %d\n", temp->price);
+		ft_printf("first position: %d\n", temp->position);
 		if (temp->next != NULL)
 			temp = temp->next;
 		while(temp != head)
 		{
-			ft_printf("list next: %d\n", temp->number);
-			ft_printf("list next target: %d\n", temp->target_nb);
-			ft_printf("list next cost: %d\n", temp->cost_to_top);
+			ft_printf("list %d			: %d\n",i, temp->number);
+			ft_printf("list %d target: %d\n", i, temp->target_nb);
+			ft_printf("list %d price: %d\n", i, temp->price);
+			ft_printf("list %d position: %d\n", i, temp->position);
 			temp = temp->next;
+			i++;
 		}
 	}
 	else if (choice == 1)
