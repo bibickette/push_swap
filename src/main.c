@@ -6,14 +6,13 @@
 /*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:49:48 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/28 19:40:45 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/28 19:46:17 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include "../LIBFT/libft.h"
 #include "../LIBFT/ft_printf/ft_printf.h"
-#include <time.h>
 
 int	main(int argc, char **argv)
 {
@@ -28,6 +27,7 @@ int	main(int argc, char **argv)
 	free_pile(a, a);
 }
 
+// #include <time.h>
 /* si on rentre seulement 1 nombre , ca fait rien*/
 
 	// starttime = (float)clock()/CLOCKS_PER_SEC;
