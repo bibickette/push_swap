@@ -6,7 +6,7 @@
 /*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:50:28 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/28 16:47:52 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/28 19:35:47 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ int		smallest_nb(t_pile *head);
 /* HELL SORT */
 /*************/
 void	hell_sort(t_pile **a, t_pile **b);
+void	more_hell(t_pile **a, t_pile **b);
 void	make_move(t_pile **a, t_pile **b, t_pile *temp_b, t_pile *target);
 void	other_move(t_pile **a, t_pile **b, t_pile *temp_b, t_pile *target);
 void	make_other_move(t_pile **a, t_pile **b, t_pile *temp_b, t_pile *target);

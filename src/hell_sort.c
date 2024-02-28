@@ -6,7 +6,7 @@
 /*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 21:16:00 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/28 17:27:55 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/28 19:40:33 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,7 @@
 
 void	hell_sort(t_pile **a, t_pile **b)
 {
-	t_pile	*temp_b;
-	t_pile	*target;
 	int		pile;
-	int		cheapest;
 
 	pile = pile_count(*a) + 1;
 	while (--pile > 3)
@@ -32,19 +29,26 @@ void	hell_sort(t_pile **a, t_pile **b)
 		return ;
 	}
 	while (--pile > 1)
-	{
-		set_pile(a, b);
-		temp_b = (*b);
-		target = (*a);
-		cheapest = find_cheapest(*b);
-		while (temp_b->price != cheapest)
-			temp_b = temp_b->next;
-		while (temp_b->target_nb != target->number)
-			target = target->next;
-		make_move(a, b, temp_b, target);
-	}
+		more_hell(a, b);
 	if (pile_count(*b) == 1)
 		last_move(a, b);
+}
+
+void	more_hell(t_pile **a, t_pile **b)
+{
+	t_pile	*temp_b;
+	t_pile	*target;
+	int		cheapest;
+
+	set_pile(a, b);
+	temp_b = (*b);
+	target = (*a);
+	cheapest = find_cheapest(*b);
+	while (temp_b->price != cheapest)
+		temp_b = temp_b->next;
+	while (temp_b->target_nb != target->number)
+		target = target->next;
+	make_move(a, b, temp_b, target);
 }
 
 void	make_move(t_pile **a, t_pile **b, t_pile *temp_b, t_pile *target)

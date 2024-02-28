@@ -6,7 +6,7 @@
 /*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:49:48 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/28 17:33:34 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/28 19:40:45 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,12 @@ int	main(int argc, char **argv)
 {
 	t_pile	*a;
 	t_pile	*b;
-	
+
 	a = NULL;
 	b = NULL;
 	argv = argv_check(argc, argv);
 	build_pile(&a, argv);
 	hell_sort(&a, &b);
-	// print_pile(a);
 	free_pile(a, a);
 }
 
