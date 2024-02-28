@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:23:25 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/27 21:12:18 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/28 17:23:28 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	rotate(t_pile **head, int choice)
 
 void	rorotate(t_pile **a, t_pile **b)
 {
-	rotate(a, 2);
-	rotate(b, 2);
+	(*a) = (*a)->next;
+	(*b) = (*b)->next;
 	ft_printf("rr\n");
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_set_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 18:30:48 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/27 22:23:48 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/28 16:17:26 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,15 @@
 void	set_medium(t_pile *head)
 {
 	int	i;
+	int	pile;
 
+	pile = pile_count(head);
 	i = -1;
-	while (++i < pile_count(head))
+	while (++i < pile)
 	{
-		if (head->position <= (pile_count(head) / 2 + pile_count(head) % 2))
+		if (head->position <= (pile / 2 + pile % 2))
 			head->medium = 1;
-		else if (head->position > (pile_count(head) / 2 + pile_count(head) % 2))
+		else if (head->position > (pile / 2 + pile % 2))
 			head->medium = 2;
 		head = head->next;
 	}
@@ -32,9 +34,11 @@ void	set_medium(t_pile *head)
 void	set_position(t_pile *head)
 {
 	int	pos;
+	int	pile;
 
+	pile = pile_count(head);
 	pos = 0;
-	while (++pos <= pile_count(head))
+	while (++pos <= pile)
 	{
 		head->position = pos;
 		head = head->next;

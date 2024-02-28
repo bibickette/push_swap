@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 19:31:15 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/27 23:11:49 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/28 15:20:17 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	overflow_check(char **argv)
 			exit (-1);
 		}
 	}
-	if (argv_count(argv, 0) == 1 || argv_count(argv, 0) == 0)
+	if (argv_count(argv, 0) <= 1)
 	{
 		free_argv(argv);
 		exit (0);

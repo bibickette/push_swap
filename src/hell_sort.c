@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hell_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 21:16:00 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/27 21:34:57 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/28 17:27:55 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,26 @@ void	hell_sort(t_pile **a, t_pile **b)
 {
 	t_pile	*temp_b;
 	t_pile	*target;
+	int		pile;
+	int		cheapest;
 
-	while (pile_count(*a) > 3)
+	pile = pile_count(*a) + 1;
+	while (--pile > 3)
 		push(a, b, 0);
 	tiny_sort(a);
+	pile = pile_count(*b) + 1;
 	if (pile_count(*b) == 1)
 	{
 		handle_four(a, b);
 		return ;
 	}
-	while (pile_count(*b) > 1)
+	while (--pile > 1)
 	{
 		set_pile(a, b);
 		temp_b = (*b);
 		target = (*a);
-		while (temp_b->price != find_cheapest(*b))
+		cheapest = find_cheapest(*b);
+		while (temp_b->price != cheapest)
 			temp_b = temp_b->next;
 		while (temp_b->target_nb != target->number)
 			target = target->next;

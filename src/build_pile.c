@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   build_pile.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 19:49:54 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/21 15:54:16 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/28 16:48:09 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ t_pile	*create_node(int num)
 	if (!new)
 		return (0);
 	new->number = num;
+	new->cost_to_top = 0;
+	new->target_nb = 0;
+	new->price = 0;
+	new->position = 0;
+	new->medium = 0;
 	new->next = NULL;
 	new->prev = NULL;
 	return (new);

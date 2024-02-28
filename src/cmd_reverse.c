@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_reverse.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:30:18 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/27 21:12:25 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/28 17:23:55 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	reverse(t_pile **head, int choice)
 
 void	rereverse(t_pile **a, t_pile **b)
 {
-	reverse(a, 2);
-	reverse(b, 2);
+	(*a) = (*a)->prev;
+	(*b) = (*b)->prev;
 	ft_printf("rrr\n");
 }

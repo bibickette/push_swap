@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   more_hell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 19:53:39 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/27 22:22:36 by phwang           ###   ########.fr       */
+/*   Updated: 2024/02/28 16:09:26 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@
 void	last_move(t_pile **a, t_pile **b)
 {
 	t_pile	*temp;
+	int		smallest;
 
+	smallest = smallest_next(*a, (*b)->number);
 	set_medium(*a);
 	temp = (*a);
-	while (temp->number != smallest_next(*a, (*b)->number))
+	while (temp->number != smallest)
 		temp = temp->next;
-	while ((*a)->number != smallest_next(*a, (*b)->number))
+	while ((*a)->number != smallest)
 	{
 		if (temp->medium == 1)
 			rotate(a, 0);
@@ -36,12 +38,14 @@ void	last_move(t_pile **a, t_pile **b)
 void	put_min_top(t_pile **a)
 {
 	t_pile	*temp;
+	int		smallest;
 
 	set_medium(*a);
 	temp = (*a);
-	while (temp->number != smallest_nb(*a))
+	smallest = smallest_nb(*a);
+	while (temp->number != smallest)
 		temp = temp->next;
-	while ((*a)->number != smallest_nb(*a))
+	while ((*a)->number != smallest)
 	{
 		if (temp->medium == 1)
 			rotate(a, 0);
@@ -52,15 +56,20 @@ void	put_min_top(t_pile **a)
 
 void	handle_four(t_pile **a, t_pile **b)
 {
-	if ((*a)->prev->number == smallest_next(*a, (*b)->number))
+	int		small;
+	int		small_nb;
+
+	small = smallest_next(*a, (*b)->number);
+	small_nb = smallest_nb(*a);
+	if ((*a)->prev->number == small)
 		reverse(a, 0);
-	else if ((*a)->next->number == smallest_next(*a, (*b)->number))
+	else if ((*a)->next->number == small)
 		rotate(a, 0);
 	pile_addfront(a, *b);
 	ft_printf("pa\n");
-	while ((*a)->number != smallest_nb(*a))
+	while ((*a)->number != small_nb)
 	{
-		if ((*a)->next->number == smallest_nb(*a))
+		if ((*a)->next->number == small_nb)
 			rotate(a, 0);
 		else
 			reverse(a, 0);
