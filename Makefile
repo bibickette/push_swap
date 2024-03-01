@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: phwang <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: phwang <phwang@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 13:47:56 by phwang            #+#    #+#              #
-#    Updated: 2024/02/27 23:02:12 by phwang           ###   ########.fr        #
+#    Updated: 2024/03/01 16:13:08 by phwang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRC = \
 	ft_set_utils.c \
 	ft_free.c \
 	ft_count \
-	more_hell.c \
+	hell_mekherbo_magic.c \
+	hell_more.c \
 	hell_sort.c \
 	tiny_sort.c \
 	build_pile.c \

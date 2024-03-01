@@ -6,7 +6,7 @@
 /*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:50:28 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/28 19:35:47 by phwang           ###   ########.fr       */
+/*   Updated: 2024/03/01 16:23:53 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,10 @@ void	make_other_move(t_pile **a, t_pile **b, t_pile *temp_b, t_pile *target);
 void	last_move(t_pile **a, t_pile **b);
 void	put_min_top(t_pile **a);
 void	handle_four(t_pile **a, t_pile **b);
+/******************/
+/* MAGIC MEKHERBO */
+/******************/
+void	mekherbo_magic(t_pile **a, t_pile **b);
 /*************/
 /* TINY SORT */
 /*************/

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   hell_mekherbo_magic.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 12:49:48 by phwang            #+#    #+#             */
-/*   Updated: 2024/03/01 16:24:23 by phwang           ###   ########.fr       */
+/*   Created: 2024/03/01 16:11:46 by phwang            #+#    #+#             */
+/*   Updated: 2024/03/01 16:12:44 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,29 @@
 #include "../LIBFT/libft.h"
 #include "../LIBFT/ft_printf/ft_printf.h"
 
-int	main(int argc, char **argv)
+void	mekherbo_magic(t_pile **a, t_pile **b)
 {
-	t_pile	*a;
-	t_pile	*b;
+	int	pushed;
+	int	pile_size;
+	int	len_tmp;
 
-	a = NULL;
-	b = NULL;
-	argv = argv_check(argc, argv);
-	build_pile(&a, argv);
-	hell_sort(&a, &b);
-	free_pile(a, a);
+	pushed = 0;
+	pile_size = pile_count(*a);
+	len_tmp = pile_size;
+	while (pile_size > 6 && pushed < len_tmp / 2)
+	{
+		if ((*a)->number < len_tmp / 2)
+		{
+			push(a, b, 0);
+			pushed++;
+		}
+		else
+			rotate(a, 0);
+		pile_size--;
+	}
+	while (len_tmp - pushed > 3)
+	{
+		push(a, b, 0);
+		pushed++;
+	}
 }
-
-// #include <time.h>
-/* si on rentre seulement 1 nombre , ca fait rien*/
-
-	// starttime = (float)clock()/CLOCKS_PER_SEC;
-	// hell_sort(&a, &b);
-	// endtime = (float)clock()/CLOCKS_PER_SEC;
-	// timeelapsed = endtime - starttime;
-	// __builtin_printf("temps 3 :%f\n", timeelapsed);
