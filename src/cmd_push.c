@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_push.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
+/*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:35:37 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/28 17:24:49 by phwang           ###   ########.fr       */
+/*   Updated: 2024/03/02 16:57:17 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	pile_addfront(t_pile **head, t_pile *element)
 		(*head) = element;
 	else
 	{
-		if (pile_count(*head) == 1)
+		if ((*head)->next == NULL)
 		{
 			last = (*head);
 			cur_first = last;

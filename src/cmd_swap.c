@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   cmd_swap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 17:34:28 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/26 14:20:33 by phwang           ###   ########.fr       */
+/*   Updated: 2024/03/02 16:53:59 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	swap(t_pile **head, int choice)
 	t_pile	*tempo;
 	int		temp;
 
-	if (pile_count(*head) <= 1)
-		return ;
 	tempo = (*head)->next;
 	temp = tempo->number;
 	tempo->number = (*head)->number;
