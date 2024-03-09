@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
+/*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:49:48 by phwang            #+#    #+#             */
-/*   Updated: 2024/03/01 16:24:23 by phwang           ###   ########.fr       */
+/*   Updated: 2024/03/09 03:22:56 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int	main(int argc, char **argv)
 	b = NULL;
 	argv = argv_check(argc, argv);
 	build_pile(&a, argv);
-	hell_sort(&a, &b);
+	if (is_it_sorted(a) == FALSE)
+		hell_sort(&a, &b);
 	free_pile(a, a);
 }
 

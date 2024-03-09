@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
+/*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:50:28 by phwang            #+#    #+#             */
-/*   Updated: 2024/03/01 16:23:53 by phwang           ###   ########.fr       */
+/*   Updated: 2024/03/09 04:02:15 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <stdlib.h>
 # include "LIBFT/libft.h"
 # include "LIBFT/ft_printf/ft_printf.h"
+
+# define TRUE 1
+# define FALSE 0
 
 typedef struct l_pile
 {
@@ -84,16 +87,16 @@ void	rereverse(t_pile **a, t_pile **b);
 /**********/
 /* FT SET */
 /**********/
-void	set_pile(t_pile **a, t_pile **b);
+void	set_pile(t_pile **a, t_pile **b, int pile_sizecpy);
 void	set_target(t_pile **b, t_pile **a_targeted);
 void	set_cost_top(t_pile **head);
-void	set_price(t_pile *b, t_pile *a);
+void	set_price(t_pile *b, t_pile *a, int pile_sizecpy);
+void	more_set_price(t_pile *a, t_pile *b, int pile_sizecpy);
 /****************/
 /* FT SET UTILS */
 /****************/
 void	set_position(t_pile *head);
 void	set_medium(t_pile *head);
-
 /***********/
 /* FT FIND */
 /***********/
@@ -109,7 +112,7 @@ int		smallest_nb(t_pile *head);
 /* HELL SORT */
 /*************/
 void	hell_sort(t_pile **a, t_pile **b);
-void	more_hell(t_pile **a, t_pile **b);
+void	more_hell(t_pile **a, t_pile **b, int pile_sizecpy);
 void	make_move(t_pile **a, t_pile **b, t_pile *temp_b, t_pile *target);
 void	other_move(t_pile **a, t_pile **b, t_pile *temp_b, t_pile *target);
 void	make_other_move(t_pile **a, t_pile **b, t_pile *temp_b, t_pile *target);
@@ -127,6 +130,7 @@ void	mekherbo_magic(t_pile **a, t_pile **b);
 /* TINY SORT */
 /*************/
 void	tiny_sort(t_pile **head);
+int		is_it_sorted(t_pile *head);
 
 /**********/
 /* OTHERS */

@@ -6,7 +6,7 @@
 /*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:52:18 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/27 21:21:23 by phwang           ###   ########.fr       */
+/*   Updated: 2024/03/09 04:02:58 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,18 @@ void	tiny_sort(t_pile **head)
 		reverse(head, 0);
 	if ((*head)->number > (*head)->next->number)
 		swap(head, 0);
+}
+
+int	is_it_sorted(t_pile *head)
+{
+	t_pile	*temp;
+
+	temp = head;
+	while (temp->next != head)
+	{
+		if (temp->number > temp->next->number)
+			return (FALSE);
+		temp = temp->next;
+	}
+	return (TRUE);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_set.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phwang <phwang@student.42.fr>              +#+  +:+       +#+        */
+/*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 21:30:17 by phwang            #+#    #+#             */
-/*   Updated: 2024/02/28 17:30:53 by phwang           ###   ########.fr       */
+/*   Updated: 2024/03/09 04:03:55 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../LIBFT/libft.h"
 #include "../LIBFT/ft_printf/ft_printf.h"
 
-void	set_pile(t_pile **a, t_pile **b)
+void	set_pile(t_pile **a, t_pile **b, int pile_sizecpy)
 {
 	set_target(b, a);
 	set_cost_top(a);
@@ -23,7 +23,7 @@ void	set_pile(t_pile **a, t_pile **b)
 	set_position(*b);
 	set_medium(*a);
 	set_medium(*b);
-	set_price(*b, *a);
+	set_price(*b, *a, pile_sizecpy);
 }
 
 void	set_target(t_pile **b, t_pile **a_targeted)
@@ -77,7 +77,7 @@ void	set_cost_top(t_pile **head)
 	}
 }
 
-void	set_price(t_pile *b, t_pile *a)
+void	set_price(t_pile *b, t_pile *a, int pile_sizecpy)
 {
 	int	i;
 	int	pile;
@@ -96,7 +96,20 @@ void	set_price(t_pile *b, t_pile *a)
 				b->price = a->cost_to_top;
 		}
 		else
-			b->price = b->cost_to_top + a->cost_to_top;
+			more_set_price(a, b, pile_sizecpy);
 		b = b->next;
 	}
+}
+
+void	more_set_price(t_pile *a, t_pile *b, int pile_sizecpy)
+{
+	if (pile_sizecpy < 50)
+	{
+		if ((b->position > a->position))
+			b->price = b->position - 1;
+		else
+			b->price = a->position - 1;
+	}
+	else
+		b->price = b->cost_to_top + a->cost_to_top;
 }
