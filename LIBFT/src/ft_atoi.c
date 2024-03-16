@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phwang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 14:38:29 by phwang            #+#    #+#             */
-/*   Updated: 2024/03/16 20:19:15 by phwang           ###   ########.fr       */
+/*   Created: 2023/11/10 14:37:55 by phwang            #+#    #+#             */
+/*   Updated: 2024/03/16 21:22:39 by phwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "../libft.h"
+#include "../ft_printf/ft_printf.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+long int	ft_atoi(const char *nptr)
 {
-	size_t	i;
+	int			i;
+	int			sign;
+	long int	nb;
 
 	i = 0;
-	while ((s1[i] || s2[i]) && i < n)
+	sign = 1;
+	nb = 0;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		if (nptr[i] == '-')
+			sign *= -1;
 		i++;
 	}
-	return (0);
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		nb = nb * 10 + (nptr[i] - '0');
+		i++;
+	}
+	return (sign * nb);
 }
-/* compare dans une longueur n *s1 et *s2
-renvoie la différence s'il y en a une sinon return 0 */
+/* transforme char en int */

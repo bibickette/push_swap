@@ -6,7 +6,7 @@
 #    By: phwang <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/15 13:04:16 by phwang            #+#    #+#              #
-#    Updated: 2024/03/16 21:09:20 by phwang           ###   ########.fr        #
+#    Updated: 2024/03/16 21:22:25 by phwang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,65 +15,12 @@ NAME = libft.a
 FT_PRINTF = ft_printf/libftprintf.a
 
 #DIRECTORIES
-SRC_DIR = src/*
+SRC_DIR = src
 OBJ_DIR = obj
 
 #SRC FILES AND OBJECTS FILES, ALL FILES with the command : find . -name "ft_*.c"
 SRC =  \
-	fibonacci.c \
-	nb_is_prime.c \
-	ft_itoa.c \
 	ft_atoi.c \
-	find_next_prime.c \
-	nb_sqrt.c \
-	power_nb.c \
-	factorial.c \
-	ft_memcpy.c \
-	ft_memcmp.c \
-	ft_memchr.c \
-	ft_memmove.c \
-	ft_memset.c \
-	ft_lstiter_bonus.c \
-	ft_lstadd_front_bonus.c \
-	ft_lstnew_bonus.c \
-	ft_lstdelone_bonus.c \
-	ft_lstadd_back_bonus.c \
-	ft_lstclear_bonus.c \
-	ft_lstsize_bonus.c \
-	ft_lstmap_bonus.c \
-	ft_lstlast_bonus.c \
-	pile_clear.c \
-	pile_size.c \
-	get_next_line_utils02.c \
-	get_next_line_utils.c \
-	get_next_line.c \
-	ft_isprint.c \
-	ft_isdigit.c \
-	ft_isascii.c \
-	ft_calloc.c \
-	ft_isalnum.c \
-	ft_isalpha.c \
-	ft_strrchr.c \
-	ft_strjoin.c \
-	ft_strlen.c \
-	ft_tolower.c \
-	ft_strdup.c \
-	ft_split.c \
-	ft_strlcpy.c \
-	ft_strlcat.c \
-	ft_strncmp.c \
-	ft_substr.c \
-	ft_strchr.c \
-	ft_striteri.c \
-	ft_toupper.c \
-	ft_strtrim.c \
-	ft_strmapi.c \
-	ft_bzero.c \
-	ft_strnstr.c \
-	ft_putendl_fd.c \
-	ft_putnbr_fd.c \
-	ft_putchar_fd.c \
-	ft_putstr_fd.c
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(addsuffix .o, $(notdir $(basename $(SRC)))))
 
